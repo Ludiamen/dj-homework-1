@@ -1,7 +1,7 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+<!--<!DOCTYPE html>-->
+<html lang="en-EN">
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -16,8 +16,8 @@
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
-    <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
 </head>
 <body>
 <div class="container">
@@ -41,13 +41,9 @@
             </tbody>
         </table>
 
-        {% if page.has_previous %}
-            <a class="button button-primary" href="?page={{ page.previous_page_number }}">⟵</a>
-        {% endif %}
-        <a class="button disabled" href="">{{ page.number }}</a>
-        {% if page.has_next %}
-            <a class="button button-primary" href="?page={{ page.next_page_number }}">⟶</a>
-        {% endif %}
+        {% if prev_page_url %}<a class="button button-primary" href="{{ prev_page_url }}">⟵</a>{% endif %}
+            <a class="button disabled" href="">{{ current_page }}</a>
+        {% if next_page_url %}<a class="button button-primary" href="{{ next_page_url }}">⟶</a>{% endif %}
     </div>
 </div>
 </body>
